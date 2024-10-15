@@ -2,6 +2,8 @@ import re
 from uuid import UUID
 import random
 import string
+import request
+import os
 
 def contains_uuid(s):
     uuid_regex = re.compile(
