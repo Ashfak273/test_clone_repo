@@ -4,6 +4,7 @@ import random
 import string
 import request
 import os
+import httpx
 
 def contains_uuid(s):
     uuid_regex = re.compile(
