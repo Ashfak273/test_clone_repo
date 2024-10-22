@@ -9,17 +9,7 @@ import time
 ddgdfgdfgdfgdfg
 
 def with_exponential_backoff(metadata, connection_config, max_attempts=5):
-    attempt = 0
-    backoff_time = 3 
 
-    while attempt < max_attempts:
-        try:
-            rs = box_op(metadata, connection_config)
-            return rs
-        except Exception as e:
-            logging.error("Error: %s Attempt: %s Backoff Wait: %s File ID: %s", e, attempt, backoff_time, metadata["id"])
-            time.sleep(backoff_time)
-            attempt += 1
             backoff_time *= 2
     raise Exception("Max retry attempts reached for Box SDK.")
 
